@@ -130,10 +130,10 @@ def train(model, model_dir, result_dir, train_ds, valid_ds, num_epochs=5):
 
         print('Epoch:{}, Loss:{:.4f}'.format(epoch + 1, float(loss)))
 
-        if LOCAL:
-            save_img_tensor(truth[0], result_dir, "truth " + str(epoch + 1))
-            save_img_tensor(recon[0], result_dir, "recon " + str(epoch + 1))
-        else:
+        save_img_tensor(truth[0], result_dir, "truth " + str(epoch + 1))
+        save_img_tensor(recon[0], result_dir, "recon " + str(epoch + 1))
+
+        if not LOCAL:
             plt_img_tensor(truth[0])
             plt_img_tensor(recon[0])
 
